@@ -31,7 +31,8 @@
     "prebuild": "node node_modules/dojo-webpack-plugin/buildDojo/build.js node_modules/dojo/dojo.js ./temp/",
     "build": "npm run prebuild && webpack",
     "build:dev": "npm run prebuild && webpack --env.dev",
-    "serve": "webpack-dev-server --env.dev"
+    "serve": "webpack-dev-server --env.dev",
+    "watch": "npm run build:dev -- --watch"
   },
   "dependencies": {
     "core-js": "^3.6.4",
