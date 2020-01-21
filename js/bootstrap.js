@@ -14,16 +14,22 @@
  * limitations under the License.
  */
 define([
-	"dojo/ready",
-	"dojo/parser",
-	"dijit/layout/TabContainer",
-	"js/LazyContentPane",
-	"dojo/has!webpack?dojo-webpack-plugin/amd/dojoES6Promise",
-	"css!dijit/themes/claro/claro.css",
-	"css!theme/sample.less"
+  "dojo/ready",
+  "dojo/parser",
+  "dijit/layout/TabContainer",
+  "js/LazyContentPane",
+  "dojo/has!webpack?dojo-webpack-plugin/amd/dojoES6Promise",
+  "css!dijit/themes/claro/claro.css",
+  "css!theme/sample.less"
 ], function(ready, parser) {
-	ready(function() {
-		parser.parse();
-	});
-	return {};
+  ready(function() {
+    parser.parse();
+
+    setTimeout(() => {
+      require(["js/lazy"], function(lazy) {
+        lazy();
+      });
+    }, 400);
+  });
+  return {};
 });
